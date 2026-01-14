@@ -152,6 +152,23 @@ const Layout = ({ children }) => {
       </AnimatePresence>
 
       <main className="relative z-10">{children}</main>
+
+      {/* Footer */}
+      <footer className="relative z-10 py-8 border-t border-white/10 bg-black">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm text-gray-500 font-mono">
+            Developed by{' '}
+            <a
+              href="https://gokulkannanganesamoorthy.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lime-400 hover:text-white transition-colors underline"
+            >
+              Gokul Kannan Ganesamoorthy
+            </a>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
