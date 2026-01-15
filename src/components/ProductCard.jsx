@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 import productSneaker from '../assets/product-sneaker.png';
 
-const ProductCard = ({ id, name, price }) => {
+const ProductCard = ({ id, name, price, image }) => {
   const { addItem } = useCart();
 
   return (
@@ -23,7 +23,7 @@ const ProductCard = ({ id, name, price }) => {
       {/* Image Container */}
       <div className="absolute inset-x-0 top-0 bottom-24 flex items-center justify-center p-8 z-0">
         <img
-          src={productSneaker}
+          src={image || productSneaker}
           alt={name}
           loading="lazy"
           className="w-full h-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] group-hover:drop-shadow-[0_0_20px_rgba(50,205,50,0.3)] transition-all duration-500 group-hover:scale-110 will-change-transform"
@@ -50,7 +50,7 @@ const ProductCard = ({ id, name, price }) => {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                addItem({ id, name, price });
+                addItem({ id, name, price, image: image || productSneaker });
               }}
               className="pointer-events-auto px-4 py-2 bg-white/10 hover:bg-lime-400 hover:text-black border border-white/20 text-xs uppercase tracking-widest transition-all duration-300 backdrop-blur-md rounded-sm"
             >

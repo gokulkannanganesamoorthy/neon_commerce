@@ -1,7 +1,11 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import heroArtifact from '../assets/hero-artifact.png';
+import heroArtifact from '../assets/hero-singularity.png';
 import ProductCard from '../components/ProductCard';
+import chromeKicks from '../assets/product-chrome.png';
+import voidWalker from '../assets/product-void.png';
+import acidRain from '../assets/product-acid.png';
+import neuralLink from '../assets/product-neural.png';
 
 const Home = () => {
   const { scrollY } = useScroll();
@@ -19,7 +23,7 @@ const Home = () => {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="h-screen relative flex items-center justify-center overflow-hidden">
+      <section className="h-screen relative flex items-center justify-center overflow-hidden bg-black">
         {/* Background Noise */}
         <div className="absolute inset-0 z-0 bg-neutral-900 opacity-20">
           <svg className="w-full h-full opacity-20 filter contrast-150 brightness-150">
@@ -38,12 +42,12 @@ const Home = () => {
         {/* Main Artifact (Depth-0) */}
         <motion.div
           style={{ y: yArtifact, scale: scaleArtifact, rotate: rotateArtifact }}
-          className="relative z-10 w-[80vw] md:w-[40vw] max-w-2xl aspect-square will-change-transform"
+          className="relative z-10 w-[80vw] md:w-[45vw] max-w-3xl aspect-square will-change-transform mix-blend-lighten"
         >
           <img
             src={heroArtifact}
             alt="Singularity Artifact"
-            className="w-full h-full object-contain filter drop-shadow-[0_0_100px_rgba(50,205,50,0.2)]"
+            className="w-full h-full object-contain filter contrast-125 saturate-150 drop-shadow-[0_0_50px_rgba(50,205,50,0.1)]"
           />
         </motion.div>
 
@@ -95,25 +99,45 @@ const Home = () => {
             <div className="absolute -top-12 -left-12 text-9xl font-bold text-white/5 font-display z-0 pointer-events-none">
               01
             </div>
-            <ProductCard id={1} name="CHROME_KICKS_X1" price="$450" />
+            <ProductCard
+              id={1}
+              name="CHROME_KICKS_X1"
+              price="$450"
+              image={chromeKicks}
+            />
           </div>
           <div className="md:translate-y-40 relative">
             <div className="absolute -top-12 -right-12 text-9xl font-bold text-white/5 font-display z-0 pointer-events-none">
               02
             </div>
-            <ProductCard id={2} name="VOID_WALKER_VEST" price="$890" />
+            <ProductCard
+              id={2}
+              name="VOID_WALKER_VEST"
+              price="$890"
+              image={voidWalker}
+            />
           </div>
           <div className="relative">
             <div className="absolute -bottom-12 -left-12 text-9xl font-bold text-white/5 font-display z-0 pointer-events-none">
               03
             </div>
-            <ProductCard id={3} name="NEURAL_LINK_HUD" price="$1,200" />
+            <ProductCard
+              id={3}
+              name="NEURAL_LINK_HUD"
+              price="$1,200"
+              image={neuralLink}
+            />
           </div>
           <div className="md:col-span-2 md:-translate-y-20 relative">
             <div className="absolute -top-12 -right-12 text-9xl font-bold text-white/5 font-display z-0 pointer-events-none">
               04
             </div>
-            <ProductCard id={4} name="ACID_RAIN_COAT" price="$680" />
+            <ProductCard
+              id={4}
+              name="ACID_RAIN_COAT"
+              price="$680"
+              image={acidRain}
+            />
           </div>
         </div>
       </section>

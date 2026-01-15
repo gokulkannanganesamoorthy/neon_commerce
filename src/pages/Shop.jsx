@@ -1,6 +1,10 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ProductCard from '../components/ProductCard';
+import chromeKicks from '../assets/product-chrome.png';
+import voidWalker from '../assets/product-void.png';
+import acidRain from '../assets/product-acid.png';
+import neuralLink from '../assets/product-neural.png';
 
 const Shop = () => {
   const containerRef = useRef(null);
@@ -14,10 +18,13 @@ const Shop = () => {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const y3 = useTransform(scrollYProgress, [0, 1], [0, -75]);
 
+  const images = [chromeKicks, voidWalker, acidRain, neuralLink];
+
   const products = Array.from({ length: 9 }).map((_, i) => ({
     id: i + 1,
     name: `ARTIFACT_0${i + 1}`,
     price: `$${(i + 1) * 150 + 99}`,
+    image: images[i % images.length],
   }));
 
   return (
